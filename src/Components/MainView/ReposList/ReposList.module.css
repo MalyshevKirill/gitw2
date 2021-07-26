@@ -1,0 +1,18 @@
+.reposList {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.reposList > div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 579px) {
+    .reposList {
+        margin: 10px 0 0 0;
+    }
+}

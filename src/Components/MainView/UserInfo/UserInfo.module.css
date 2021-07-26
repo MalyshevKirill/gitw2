@@ -1,0 +1,52 @@
+.userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.userInfo_mainInfo {
+    background-color: #d5d0cc;
+    margin-bottom: 10px;
+    padding: 15px;
+    text-align: center;
+    word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userInfo_image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    margin-bottom: 10px;
+}
+
+.userInfo_name {
+    font-size: 20px;
+}
+
+.userInfo_login {
+    color: #444444;
+    font-weight: 500;
+}
+
+.userInfo_scores {
+    background-color: #d5d0cc;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userInfo_scores > span{
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.userInfo_Icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}

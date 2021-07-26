@@ -1,0 +1,13 @@
+.userGitName_input {
+    margin: 0 10px;
+    width: 200px;
+    outline: none;
+}
+
+.userList {
+    position: absolute;
+    margin: 0 0 0 10px;
+    padding: 0;
+    width: 207px;
+    background-color: #fff;
+}

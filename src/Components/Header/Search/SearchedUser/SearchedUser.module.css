@@ -1,0 +1,9 @@
+.searchedUser {
+    cursor: pointer;
+    padding: 5px 0 5px 3px;
+}
+
+.searchedUser:hover {
+    background-color: #d5d0cc;
+    transition: 0.5s all;
+}
