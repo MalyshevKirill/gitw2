@@ -14,28 +14,32 @@ const Search = (props:Props) => {
     const [searchStatus, setSearchStatus] = useState<boolean>(false)
 
     const Search = (userName: string) => {
-        fetch("https://api.github.com/search/users?&per_page=10&order=desc&q=" + userName, {
-            method:'GET',
-            headers: new Headers({
-                "Authorization": token,
+        if(userName!=="") {
+            fetch("https://api.github.com/search/users?&per_page=10&order=desc&q=" + userName, {
+                method:'GET',
+                headers: new Headers({
+                    "Authorization": token,
+                })
             })
-        })
-        .then(responce => {            
-            if(responce.status!==200) {
-                responce.status===403?props.setRequestStatus({code: responce.status, text: "API limit"}):
-                props.setRequestStatus({code: responce.status, text: responce.statusText})
-                return null
-            } else {
-                return responce.json()
-            }
-        })
-        .then(result => {
-            if(result !== null) {
-                setUserGitSearchList(result.items)
-            } else {
-                setUserGitSearchList([])
-            }
-        })
+            .then(responce => {            
+                if(responce.status!==200) {
+                    responce.status===403?props.setRequestStatus({code: responce.status, text: "API limit"}):
+                    props.setRequestStatus({code: responce.status, text: responce.statusText})
+                    return null
+                } else {
+                    return responce.json()
+                }
+            })
+            .then(result => {
+                if(result !== null) {
+                    setUserGitSearchList(result.items)
+                } else {
+                    setUserGitSearchList([])
+                }
+            })
+        } else {
+            setUserGitSearchList([])
+        }
     }
 
     return (
@@ -46,9 +50,7 @@ const Search = (props:Props) => {
                     placeholder="Type username"
                     id="userGitNameInput"
                     onFocus={() => setSearchStatus(true)}
-                    onChange={e => {
-                        Search(e.target.value)
-                    }}
+                    onChange={e => Search(e.target.value)}
                     autoComplete="off"
                 />
                 <ul className={c.userList}>
