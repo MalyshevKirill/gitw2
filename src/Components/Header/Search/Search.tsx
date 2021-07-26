@@ -20,10 +20,10 @@ const Search = (props:Props) => {
                 "Authorization": token,
             })
         })
-        .then(responce => {
-            responce.status===403?props.setRequestStatus({code: responce.status, text: "API limit"}):
-            props.setRequestStatus({code: responce.status, text: responce.statusText})
+        .then(responce => {            
             if(responce.status!==200) {
+                responce.status===403?props.setRequestStatus({code: responce.status, text: "API limit"}):
+                props.setRequestStatus({code: responce.status, text: responce.statusText})
                 return null
             } else {
                 return responce.json()
@@ -32,7 +32,9 @@ const Search = (props:Props) => {
         .then(result => {
             if(result !== null) {
                 setUserGitSearchList(result.items)
-            } 
+            } else {
+                setUserGitSearchList([])
+            }
         })
     }
 
