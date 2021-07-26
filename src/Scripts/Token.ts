@@ -1,1 +1,1 @@
-export let token:string = ""
+export const token:string = ""
