@@ -10,8 +10,8 @@ interface Props {
 const MainView = (props:Props) => {
     return(
         <main className={c.main}>
-            <UserInfo userInfo={props.userInfo}></UserInfo>
-            <ReposList userReposList={props.userReposList}></ReposList>
+            <UserInfo userInfo={props.userInfo}/>
+            <ReposList userReposList={props.userReposList}/>
         </main>
     )
 }

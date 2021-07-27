@@ -11,13 +11,13 @@ interface Props {
 
 const ReposCard = (props:Props) => {
     return (
-        <div className={c.reposCard}>
+        <li className={c.reposCard}>
             <p className={c.reposName}>{props.reposName}</p>
             <div className={c.reposStats}>
-                <Counter title="Forks" icon={() => {return <ForkIcon></ForkIcon>}} count={props.reposForks}></Counter>
-                <Counter title="Stars" icon={() => {return <StarIcon></StarIcon>}} count={props.reposStars}></Counter>
+                <Counter title="Forks" icon={() => {return <ForkIcon></ForkIcon>}} count={props.reposForks}/>
+                <Counter title="Stars" icon={() => {return <StarIcon></StarIcon>}} count={props.reposStars}/>
             </div>
-        </div>
+        </li>
     )
 }
 export default ReposCard

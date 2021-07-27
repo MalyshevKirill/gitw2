@@ -7,7 +7,7 @@
     margin-left: 20px;
 }
 
-.reposList > div:not(:last-child) {
+.reposList > li:not(:last-child) {
     margin-bottom: 10px;
 }
 

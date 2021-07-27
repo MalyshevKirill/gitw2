@@ -76,9 +76,9 @@ function App() {
 
   return (
     <div className="App">
-        <Header CheckGitAcc={CheckGitAcc} loadingStatus={loadingStatus} requestStatus={requestStatus} setRequestStatus={setRequestStatus}></Header>
+        <Header CheckGitAcc={CheckGitAcc} loadingStatus={loadingStatus} requestStatus={requestStatus} setRequestStatus={setRequestStatus}/>
         {requestStatus.code===200&&!loadingStatus&&
-          <MainView userInfo={userInfo} userReposList={userReposList}></MainView>
+          <MainView userInfo={userInfo} userReposList={userReposList}/>
         }
     </div>
   );
