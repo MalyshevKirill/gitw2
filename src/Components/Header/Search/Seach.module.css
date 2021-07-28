@@ -4,10 +4,16 @@
     outline: none;
 }
 
+.userCountInput {
+    outline: none;
+}
+
 .userList {
     position: absolute;
     margin: 0 0 0 10px;
     padding: 0;
     width: 207px;
     background-color: #fff;
+    max-height: 316px;
+    overflow-y: auto;
 }
