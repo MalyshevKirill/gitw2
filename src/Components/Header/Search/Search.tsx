@@ -4,7 +4,6 @@ import SearchedUser from "./SearchedUser/SearchedUser"
 import { token } from "../../../Scripts/Token"
 import debounce from "lodash.debounce"
 import { RequestStatus } from "../../../App"
-import { isNumber } from "lodash"
 
 interface Props {
     setRequestStatus: React.Dispatch<RequestStatus>
@@ -27,7 +26,7 @@ const Search = (props: Props) => {
     }) 
 
     const Search = (userName: string, count: number) => {
-        if (userName !== "" && !isNaN(count)) {
+        if (userName !== "" && count !== 0) {
             fetch("https://api.github.com/search/users?&per_page=" + count + "&order=desc&q=" + userName, {
                 method: 'GET',
                 headers: new Headers({
@@ -73,10 +72,10 @@ const Search = (props: Props) => {
     )
 
     useEffect(() => {
-        if(currentFocus===-1) {
+        if(currentFocus === -1 && searchStatus===true) {
             InputRef.current?.focus()
         }
-    }, [currentFocus])
+    }, [currentFocus,searchStatus])
   
     useEffect(() => {
       document.addEventListener("keydown", handleKeyDown, false)
@@ -87,13 +86,12 @@ const Search = (props: Props) => {
 
     useEffect(() => {
         debouncedSave(searchData.text, searchData.count)
+        console.log(searchData.count)
     },[searchData, debouncedSave])
 
     const handleChangeCount = (e:React.ChangeEvent<HTMLInputElement>) => {
-        if(Number(e.target.value) < 100 || e.target.value === "") {
-            setSearchData({text:searchData.text, count: Number(e.target.value)})
-            console.log(searchData.count)
-
+        if(Number(e.target.value) < 100) {
+                setSearchData({text:searchData.text, count: Number(e.target.value)})
         }  
     }
 
@@ -134,7 +132,7 @@ const Search = (props: Props) => {
                 min="0"
                 max="99"
                 autoComplete="off"
-                value={Number(searchData.count)}
+                value={"" + searchData.count} 
                 onChange={(e) => handleChangeCount(e)}
             />
         </div>

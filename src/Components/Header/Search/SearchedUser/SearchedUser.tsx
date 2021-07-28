@@ -25,9 +25,9 @@ const SearchedUser = (props:Props) => {
         handleSelect()
         if (e.key === "Enter" ) {
             props.CheckGitAcc(props.user.login)
+            props.setCurrentFocus(-1)
+            props.setSearchStatus(false)
         }
-        props.setCurrentFocus(-1)
-        props.setSearchStatus(false)
     }
     
     const handleClick = (e:React.MouseEvent) => {
